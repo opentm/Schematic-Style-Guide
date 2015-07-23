@@ -107,7 +107,7 @@ Break up the sub-symbols by major function. Have a separate symbol for power and
 Use brief text notes to explain why you connected certain things in a certain way. If a part has some pin-based config settings (using pull-ups/downs), use notes to indicate which settings you’ve specified for the design – you’d be surprised how often such pins are hooked up incorrectly compared to the note. Include notes to specify the I2C/SMBus addresses of various devices so you don’t have to look these up in the datasheets during debug. Use notes to convey layout guidelines. It’s always better to have more information than too little.
 
 
-# References
+## References
 
 Original article: http://blog.upverter.com/post/102541405327/schematic-style-guide
 
