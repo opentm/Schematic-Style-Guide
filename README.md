@@ -38,9 +38,9 @@ These may be: FPGA, Processor, Memory, Power - switching regulators, Power - lin
 You should be able to tell what a net’s function is by its name alone. For example, use MEM_FLASH_A15 instead of just A15. This way, you know it’s address bit-15 of the flash memory.
 
 * **Same things with Power**
-* Always start with “VCC”. Makes all power nets easy to identify.
-* Include the voltage in the name to make debugging easier (ie. VCC_5V, VCC_3V3, VCC_0V9).
-* Special analog power nets can be designated with AVCC…
+ * Always start with “VCC”. Makes all power nets easy to identify.
+ * Include the voltage in the name to make debugging easier (ie. VCC_5V, VCC_3V3, VCC_0V9).
+ * Special analog power nets can be designated with AVCC.
 
 * **Ground: GND** - 
 If you have separate ground islands, name them AGND, AGND_AUDIO.
