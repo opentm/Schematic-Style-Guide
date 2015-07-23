@@ -14,52 +14,50 @@ symbols/flags should be pointed up and GND symbols pointed down.
 * **Use flags/indirect connections rather than directly drawn nets.** - 
 Only make direct net connections if they are short. This prevents the dreaded “spaghetti” effect and keeps the schematic readable.
 
-* Make all your pins visible. Avoid invisible pins, even if your CAD tool supports it. - 
+* **Make all your pins visible. Avoid invisible pins, even if your CAD tool supports it.** - 
 It’s better to keep everything visible to make it more likely that errors are caught.
 
-* If a pin is purposely left unconnected, mark it and avoid ambiguity.
+* **If a pin is purposely left unconnected, mark it and avoid ambiguity.** - 
 You can do this using your CAD tool’s no-connect symbol (typically an “X”). This signals to reviewers that the no-connect is intentional.
 
-* Avoid using 4-way connections. - 
+* **Avoid using 4-way connections** - 
 They make it unclear whether the connection is deliberate or a mistake. Use two 3-way connections to make it clear that it was intentional. This way, all 4-way connections default to being a mistake.
 
-## Place large groups of decoupling caps (ex. for large BGAs) in a separate dedicated section.
+* **Place large groups of decoupling caps (ex. for large BGAs) in a separate dedicated section.** - 
 It’s OK to place decoupling caps right beside the IC if there are fewer than 5. This keeps things clean.
 
-## Be consistent with the placement of your text.
+*  **Be consistent with the placement of your text.** - 
 Things like reference designators, values, part numbers, etc. should be placed in the same manner for all components.
 
-## Organize your schematic by creating sections for major functions.
-These may be:
-FPGA, Processor, Memory, Power - switching regulators, Power - linear regulators, Clock Generation, PCIe, Audio, Video, Board inputs, Board outputs, Decoupling
+* **Organize your schematic by creating sections for major functions.** - 
+These may be: FPGA, Processor, Memory, Power - switching regulators, Power - linear regulators, Clock Generation, PCIe, Audio, Video, Board inputs, Board outputs, Decoupling
 
 # Naming Conventions
 
-## Give all nets clear, descriptive names.
+* **Give all nets clear, descriptive names.** - 
 You should be able to tell what a net’s function is by its name alone. For example, use MEM_FLASH_A15 instead of just A15. This way, you know it’s address bit-15 of the flash memory.
 
-# Same things with Power
+* **Same things with Power**
 * Always start with “VCC”. Makes all power nets easy to identify.
 * Include the voltage in the name to make debugging easier (ie. VCC_5V, VCC_3V3, VCC_0V9).
 * Special analog power nets can be designated with AVCC…
 
-## Ground: GND
+* **Ground: GND** - 
 If you have separate ground islands, name them AGND, AGND_AUDIO.
 
-## Name all active low pins with a lowercase ‘n’ instead of an overline.
+* **Name all active low pins with a lowercase ‘n’ instead of an overline.** - 
 (ie. RESETn, INTn,)
 
-## Indicate the positive and negative legs of differential pairs using lowercase 'n’ and 'p’. (ie. CLK_DDRp, CLK_DDRn)
+* **Indicate the positive and negative legs of differential pairs using lowercase 'n’ and 'p’.** - (ie. CLK_DDRp, CLK_DDRn)
 
-## Begin clock net names with “CLK”.
+* **Begin clock net names with “CLK”.**
 
-## Special attention is often paid to clock routing during layout so this naming convention is a worthwhile practice.
+* **Special attention is often paid to clock routing during layout so this naming convention is a worthwhile practice.**
 
-## Use uppercases for all other pin names and net names.
+* **Use uppercases for all other pin names and net names.** - 
 That is, except for the n/p suffixes mentioned above. Consistency is important to readability.
 
-## Use reference designators for all components and follow standard conventions.
-
+* **Use reference designators for all components and follow standard conventions.** - 
 * BT – battery
 * R – resistors
 * RN – resistor networks
@@ -79,10 +77,10 @@ That is, except for the n/p suffixes mentioned above. Consistency is important t
 * TP – test points
 * H – holes/vias (sometimes it makes sense to include specific components on the schematic to designate corresponding holes on the layout, like in DDR routing)
 
-## Be specific with I/O pins.
+* **Be specific with I/O pins.**
 Parts with programmable I/O or I/O that can take on multiple functions should use pin names that reflect the function(s) selected for the particular design, rather than listing all the possible functions or using the generic pin names (like IO_B7_255). For busses, indicate the signal direction (input into the device, output from the device, or bi-directional) using lowercase i,o, and io prefixes to the signal names.
 
-### This is particularly useful for FPGAs (where almost all I/O are programmable). It’s very good practice to define your FPGA’s top pin-assignment in your FPGA software, compile to make sure it’s valid, export the pin-assignment, and use this as the basis for creating the symbol.
+* * This is particularly useful for FPGAs (where almost all I/O are programmable). It’s very good practice to define your FPGA’s top pin-assignment in your FPGA software, compile to make sure it’s valid, export the pin-assignment, and use this as the basis for creating the symbol.
 
 ## If your CAD software doesn’t have good features to indicate a net’s controlled impedance, include it in the net name.
 For example: VIDEO_IN_CVBS_Z75 (Z=Impedance, 75=ohms), PCIE_TX_ZD85 (ZD=differential impedance, 85=ohms)
@@ -112,4 +110,7 @@ Things like fiducials, tooling/mounting holes, fans/heat sinks, breakaway tabs, 
 Use brief text notes to explain why you connected certain things in a certain way. If a part has some pin-based config settings (using pull-ups/downs), use notes to indicate which settings you’ve specified for the design – you’d be surprised how often such pins are hooked up incorrectly compared to the note. Include notes to specify the I2C/SMBus addresses of various devices so you don’t have to look these up in the datasheets during debug. Use notes to convey layout guidelines. It’s always better to have more information than too little.
 
 
+# References
+
+Original article: http://blog.upverter.com/post/102541405327/schematic-style-guide
 
