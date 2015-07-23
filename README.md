@@ -61,9 +61,9 @@ That is, except for the n/p suffixes mentioned above. Consistency is important t
 
 ## Use reference designators for all components and follow standard conventions.
 
-* BT – battery
-R – resistors
-RN – resistor networks
+** BT – battery
+** R – resistors
+** RN – resistor networks
 C – general capacitors
 XC – decoupling capacitors (designs with hundreds of decoupling caps, like for large BGAs, may quickly run up the count if you only use “C”, so it’s good practice to keep a separate ref des for decoupling caps)
 L – inductors and ferrites (alternative FB for ferrite bead)
