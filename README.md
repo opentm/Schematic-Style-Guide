@@ -102,6 +102,15 @@ Then import this spreadsheet into your CAD tool. This is opposed to typing in th
 ##  Use multi-part symbols for large devices to keep things organized.
 Break up the sub-symbols by major function. Have a separate symbol for power and ground. Using multipart symbols applies not only to large ICs but also to components like resistor networks (ie. a 16-pin package containing 8 resistors). Resistor networks are often used for series termination on large busses. It’s often cleaner to create a multi-part symbol where each part is a single resistor. This way, you can order the resistors on your schematic without nets crossing over when directly connecting them.
 
+# General
+
+* Include non-electrical components on the schematic to make sure they get included in the BOM and that the layout engineer knows about them.
+Things like fiducials, tooling/mounting holes, fans/heat sinks, breakaway tabs, etc.
+
+* Create a test-point symbol and connect it to pins for which you specifically want a test-point via to probe during debug.
+
+* Include lots of notes!
+Use brief text notes to explain why you connected certain things in a certain way. If a part has some pin-based config settings (using pull-ups/downs), use notes to indicate which settings you’ve specified for the design – you’d be surprised how often such pins are hooked up incorrectly compared to the note. Include notes to specify the I2C/SMBus addresses of various devices so you don’t have to look these up in the datasheets during debug. Use notes to convey layout guidelines. It’s always better to have more information than too little.
 
 
 
