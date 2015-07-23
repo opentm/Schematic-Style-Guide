@@ -61,22 +61,47 @@ That is, except for the n/p suffixes mentioned above. Consistency is important t
 
 ## Use reference designators for all components and follow standard conventions.
 
-** BT – battery
-** R – resistors
-** RN – resistor networks
-C – general capacitors
-XC – decoupling capacitors (designs with hundreds of decoupling caps, like for large BGAs, may quickly run up the count if you only use “C”, so it’s good practice to keep a separate ref des for decoupling caps)
-L – inductors and ferrites (alternative FB for ferrite bead)
-FC – fiducial
-T – transformers
-D – diodes (this often includes LEDs)
-Y – crystals
-Q – transistors
-P – multi-pin connectors
-J – simple connectors (video connectors, audio connectors, etc.)
-U – ICs
-RG – power regulators (like LDOs)
-SW – switches
-TP – test points
-H – holes/vias (sometimes it makes sense to include specific components on the schematic to designate corresponding holes on the layout, like in DDR routing)
+* BT – battery
+* R – resistors
+* RN – resistor networks
+* C – general capacitors
+* XC – decoupling capacitors (designs with hundreds of decoupling caps, like for large BGAs, may quickly run up the count if you only use “C”, so it’s good practice to keep a separate ref des for decoupling caps)
+* L – inductors and ferrites (alternative FB for ferrite bead)
+* FC – fiducial
+* T – transformers
+* D – diodes (this often includes LEDs)
+* Y – crystals
+* Q – transistors
+* P – multi-pin connectors
+* J – simple connectors (video connectors, audio connectors, etc.)
+* U – ICs
+* RG – power regulators (like LDOs)
+* SW – switches
+* TP – test points
+* H – holes/vias (sometimes it makes sense to include specific components on the schematic to designate corresponding holes on the layout, like in DDR routing)
+
+## Be specific with I/O pins.
+Parts with programmable I/O or I/O that can take on multiple functions should use pin names that reflect the function(s) selected for the particular design, rather than listing all the possible functions or using the generic pin names (like IO_B7_255). For busses, indicate the signal direction (input into the device, output from the device, or bi-directional) using lowercase i,o, and io prefixes to the signal names.
+
+### This is particularly useful for FPGAs (where almost all I/O are programmable). It’s very good practice to define your FPGA’s top pin-assignment in your FPGA software, compile to make sure it’s valid, export the pin-assignment, and use this as the basis for creating the symbol.
+
+## If your CAD software doesn’t have good features to indicate a net’s controlled impedance, include it in the net name.
+For example: VIDEO_IN_CVBS_Z75 (Z=Impedance, 75=ohms), PCIE_TX_ZD85 (ZD=differential impedance, 85=ohms)
+
+# Symbols
+
+## Order pins on the symbols by function, not by number.
+Place power pins near the top and ground pins near the bottom.
+
+##For IC packages with a thermal pad, create an additional pin on the symbol to connect it to the ground plane.
+The clearest way to do this is to name it GND_PAD with a pin number one greater than the total number of pins.
+
+## Create symbols by copying/pasting the pinout table from the datasheet into a spreadsheet.
+Then import this spreadsheet into your CAD tool. This is opposed to typing in the pin names/numbers manually. Copying and pasting minimizes the chances of data entry errors.
+
+##  Use multi-part symbols for large devices to keep things organized.
+Break up the sub-symbols by major function. Have a separate symbol for power and ground. Using multipart symbols applies not only to large ICs but also to components like resistor networks (ie. a 16-pin package containing 8 resistors). Resistor networks are often used for series termination on large busses. It’s often cleaner to create a multi-part symbol where each part is a single resistor. This way, you can order the resistors on your schematic without nets crossing over when directly connecting them.
+
+
+
 
