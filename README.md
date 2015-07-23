@@ -58,24 +58,24 @@ If you have separate ground islands, name them AGND, AGND_AUDIO.
 That is, except for the n/p suffixes mentioned above. Consistency is important to readability.
 
 * **Use reference designators for all components and follow standard conventions.** - 
-* BT – battery
-* R – resistors
-* RN – resistor networks
-* C – general capacitors
-* XC – decoupling capacitors (designs with hundreds of decoupling caps, like for large BGAs, may quickly run up the count if you only use “C”, so it’s good practice to keep a separate ref des for decoupling caps)
-* L – inductors and ferrites (alternative FB for ferrite bead)
-* FC – fiducial
-* T – transformers
-* D – diodes (this often includes LEDs)
-* Y – crystals
-* Q – transistors
-* P – multi-pin connectors
-* J – simple connectors (video connectors, audio connectors, etc.)
-* U – ICs
-* RG – power regulators (like LDOs)
-* SW – switches
-* TP – test points
-* H – holes/vias (sometimes it makes sense to include specific components on the schematic to designate corresponding holes on the layout, like in DDR routing)
+* **BT** – battery
+* **R** – resistors
+* **RN** – resistor networks
+* **C** – general capacitors
+* **XC** – decoupling capacitors (designs with hundreds of decoupling caps, like for large BGAs, may quickly run up the count if you only use “C”, so it’s good practice to keep a separate ref des for decoupling caps)
+* **L** – inductors and ferrites (alternative FB for ferrite bead)
+* **FC** – fiducial
+* **T** – transformers
+* **D** – diodes (this often includes LEDs)
+* **Y** – crystals
+* **Q** – transistors
+* **P** – multi-pin connectors
+* **J** – simple connectors (video connectors, audio connectors, etc.)
+* **U** – ICs
+* **RG** – power regulators (like LDOs)
+* **SW** – switches
+* **TP** – test points
+* **H** – holes/vias (sometimes it makes sense to include specific components on the schematic to designate corresponding holes on the layout, like in DDR routing)
 
 * **Be specific with I/O pins.**
 Parts with programmable I/O or I/O that can take on multiple functions should use pin names that reflect the function(s) selected for the particular design, rather than listing all the possible functions or using the generic pin names (like IO_B7_255). For busses, indicate the signal direction (input into the device, output from the device, or bi-directional) using lowercase i,o, and io prefixes to the signal names.
