@@ -6,7 +6,7 @@ Here’s a style guide to help you keep your schematics legible and consistent.
 
 # Organization
 
-## Strive to maintain a left-to-right flow.
+* Strive to maintain a left-to-right flow.
 Have inputs on the left of symbols, outputs on the right -- of course it's not always possible but it's
 a good rule-of-thumb. In general, don't place pins on the tops of symbols (particularly true for
 rectangular symbols representing ICs, but there are exceptions, like an opamp symbol). Power
