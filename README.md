@@ -6,12 +6,12 @@ Here’s a style guide to help you keep your schematics legible and consistent.
 
 # Organization
 
-* *Strive to maintain a left-to-right flow* - 
+* **Strive to maintain a left-to-right flow** - 
 Have inputs on the left of symbols, outputs on the right -- of course it's not always possible but it's a good rule-of-thumb. In general, don't place pins on the tops of symbols (particularly true for
 rectangular symbols representing ICs, but there are exceptions, like an opamp symbol). Power
 symbols/flags should be pointed up and GND symbols pointed down.
 
-* *Use flags/indirect connections rather than directly drawn nets.* - 
+* **Use flags/indirect connections rather than directly drawn nets.** - 
 Only make direct net connections if they are short. This prevents the dreaded “spaghetti” effect and keeps the schematic readable.
 
 * Make all your pins visible. Avoid invisible pins, even if your CAD tool supports it. - 
